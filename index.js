@@ -95,6 +95,15 @@ class Car {
   }
 }
 
+//if the current gas level minus the (distance/MPG) is less than or equal to 0
+//set actualDistance equal to MPG*tank (the actual distance the car is able to drive before running out of gas)
+//reset the tank to 0
+//add the actual distance to the odometer
+//return the "i ran out of gas" line
+// (end if statement)
+//subtract the (distance/MPG) from tank
+//add the distance to odometer
+
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -145,6 +154,12 @@ class Instructor extends Lambdasian {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  score(student) {
+    let points = Math.floor(Math.random() * 5 + 1);
+    return Math.floor(Math.random() * 2) === 0
+      ? (student.grade += points)
+      : (student.grade -= points);
+  }
 }
 
 /*
@@ -168,6 +183,7 @@ class Student extends Lambdasian {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
   }
   listSubjects() {
     return `Loving ${this.favSubjects}!`;
@@ -177,6 +193,13 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun spring challenge on ${subject}`;
+  }
+  graduate() {
+    if (this.grade > 70) {
+      return `${this.name} is ready to graduate!`;
+    } else {
+      return `${this.name} needs to keep studying.`;
+    }
   }
 }
 
